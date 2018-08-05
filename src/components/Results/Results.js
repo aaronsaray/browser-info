@@ -44,7 +44,7 @@ const Results = props => (
             IPImage,
             props.ipPublic,
             props.ipPrivate,
-            "Your IP Address"
+            "Your public IP is bold, the internal is lighter"
           )}
         </Grid.Column>
       </Grid.Row>

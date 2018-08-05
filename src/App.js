@@ -5,6 +5,7 @@ import Results from "./components/Results/Results";
 import styles from "./App.css";
 import ChromeImage from "./images/chrome.svg";
 import AppleImage from "./images/apple.svg";
+import UserAgentParser from "./services/UserAgentParser";
 
 class App extends React.Component {
   state = {
@@ -19,15 +20,22 @@ class App extends React.Component {
     ipPrivate: null
   };
 
+  /**
+   * Need to parse out the user agent to get the state information
+   */
   componentDidMount = () => {
-    const browser = "Google Chrome";
-    const browserDetailed = "65.4.4";
+    const parser = new UserAgentParser(navigator.userAgent);
+
+    const { name: browser, version: browserDetailed } = parser.browser;
     const browserImage = ChromeImage;
-    const operatingSystem = "MacOS";
-    const operatingSystemDetailed = "10.6.4";
+
+    const {
+      name: operatingSystem,
+      version: operatingSystemDetailed
+    } = parser.operatingSystem;
     const operatingSystemImage = AppleImage;
-    const ipPublic = "65.128.0.4";
-    const ipPrivate = "127.0.0.1";
+
+    const { public: ipPublic, private: ipPrivate } = parser.ip;
 
     this.setState({
       resultsLoaded: true,
