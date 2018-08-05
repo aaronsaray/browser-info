@@ -1,1 +1,0 @@
-{"version":3,"sources":["components/LoadingIndicator/LoadingIndicator.css"],"names":[],"mappings":"AAAA,uBACE,eAAiB","file":"static/css/main.03b595ca.css","sourcesContent":[":local(.container) {\n  margin-top: 10vh;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/components/LoadingIndicator/LoadingIndicator.css"],"sourceRoot":""}

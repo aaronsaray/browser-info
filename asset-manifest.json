@@ -1,6 +1,9 @@
 {
-  "main.css": "static/css/main.03b595ca.css",
-  "main.css.map": "static/css/main.03b595ca.css.map",
-  "main.js": "static/js/main.e49a93bc.js",
-  "main.js.map": "static/js/main.e49a93bc.js.map"
+  "main.css": "static/css/main.e75cec8c.css",
+  "main.css.map": "static/css/main.e75cec8c.css.map",
+  "main.js": "static/js/main.fc52ca78.js",
+  "main.js.map": "static/js/main.fc52ca78.js.map",
+  "static/media/apple.svg": "static/media/apple.7563b932.svg",
+  "static/media/chrome.svg": "static/media/chrome.ff8356d3.svg",
+  "static/media/internet.svg": "static/media/internet.c564b21a.svg"
 }
