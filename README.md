@@ -1,2 +1,3 @@
-# browser-info
-Website to show browser info
+# Browser Info
+
+This is a project to show browser info using React.
