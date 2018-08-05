@@ -1,14 +1,13 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 import LoadingIndicator from "./components/LoadingIndicator/LoadingIndicator";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <CssBaseline />
+      <Container>
         <LoadingIndicator />
-      </React.Fragment>
+      </Container>
     );
   }
 }
