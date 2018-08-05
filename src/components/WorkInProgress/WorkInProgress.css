@@ -1,0 +1,13 @@
+:local(.container) {
+  width: 14.3rem;
+  background: #e43;
+  position: fixed;
+  top: 1.8rem;
+  right: -3.6rem;
+  text-align: center;
+  line-height: 3.6rem;
+  letter-spacing: 0.07rem;
+  color: #f0f0f0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

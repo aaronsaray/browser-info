@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "semantic-ui-react";
 import LoadingIndicator from "./components/LoadingIndicator/LoadingIndicator";
 import Results from "./components/Results/Results";
+import WorkInProgress from "./components/WorkInProgress/WorkInProgress";
 import styles from "./App.css";
 import ChromeImage from "./images/chrome.svg";
 import AppleImage from "./images/apple.svg";
@@ -67,6 +68,7 @@ class App extends React.Component {
         ) : (
           <LoadingIndicator />
         )}
+        <WorkInProgress />
       </Container>
     );
   }
