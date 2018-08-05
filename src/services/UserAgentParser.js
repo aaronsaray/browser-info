@@ -4,45 +4,42 @@
  * It returns an object - see method for declaration
  */
 
+const parser = require("ua-parser-js");
+
 class UserAgentParser {
   constructor(userAgent) {
     this.userAgent = userAgent;
+    this.parsedUserAgent = parser(userAgent);
   }
 
   /**
    * Get browser name and version keys
    */
   get browser() {
-    const result = {
-      name: "Google Chrome",
-      version: "65.4.2"
+    return {
+      name: this.parsedUserAgent.browser.name,
+      version: this.parsedUserAgent.browser.version
     };
-
-    return result;
   }
 
   /**
    * Get operating system name and version keys
    */
   get operatingSystem() {
-    const result = {
-      name: "MacOS",
-      version: "10.1.2"
+    return {
+      name: this.parsedUserAgent.os.name,
+      version: this.parsedUserAgent.os.version
     };
-
-    return result;
   }
 
   /**
    * Get public and private ip
    */
   get ip() {
-    const result = {
-      public: "65.x.x.x",
-      private: "10.0.0.x"
+    return {
+      public: "x.x.x.x",
+      private: "x.x.x.x"
     };
-
-    return result;
   }
 }
 
