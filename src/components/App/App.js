@@ -1,15 +1,15 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
-import LoadingIndicator from "./components/LoadingIndicator/LoadingIndicator";
-import Results from "./components/Results/Results";
-import WorkInProgress from "./components/WorkInProgress/WorkInProgress";
+import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
+import Results from "../Results/Results";
+import WorkInProgress from "../WorkInProgress/WorkInProgress";
 import styles from "./App.css";
 
 // consider making these all into a universal import?
-import ChromeImage from "./images/chrome.svg";
-import AppleImage from "./images/apple.svg";
+import ChromeImage from "../../images/chrome.svg";
+import AppleImage from "../../images/apple.svg";
 
-import UserAgentParser from "./services/UserAgentParser";
+import UserAgentParser from "../../services/UserAgentParser";
 
 class App extends React.Component {
   state = {
