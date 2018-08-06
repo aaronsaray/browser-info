@@ -16,6 +16,16 @@ const ResultCard = (image, header, details, description) => {
   );
 };
 
+/**
+ * If we have no result, we can't detect it, so make the display that.
+ */
+const ResultEmptyDecoration = value => {
+  if (!value) {
+    value = "Unable to Detect";
+  }
+  return value;
+};
+
 const Results = props => (
   <React.Fragment>
     <Header as="h1" className="center aligned">
@@ -26,24 +36,24 @@ const Results = props => (
         <Grid.Column>
           {ResultCard(
             props.browserImage,
-            props.browser,
-            props.browserDetailed,
+            ResultEmptyDecoration(props.browser),
+            ResultEmptyDecoration(props.browserDetailed),
             "Your Internet Browser"
           )}
         </Grid.Column>
         <Grid.Column>
           {ResultCard(
             props.operatingSystemImage,
-            props.operatingSystem,
-            props.operatingSystemDetailed,
+            ResultEmptyDecoration(props.operatingSystem),
+            ResultEmptyDecoration(props.operatingSystemDetailed),
             "Your Operating System"
           )}
         </Grid.Column>
         <Grid.Column>
           {ResultCard(
             IPImage,
-            props.ipPublic,
-            props.ipPrivate,
+            ResultEmptyDecoration(props.ipPublic),
+            ResultEmptyDecoration(props.ipPrivate),
             "Your public IP is bold, the internal is lighter"
           )}
         </Grid.Column>
@@ -59,7 +69,7 @@ Results.propTypes = {
   operatingSystem: PropTypes.string.isRequired,
   operatingSystemDetailed: PropTypes.string.isRequired,
   operatingSystemImage: PropTypes.string.isRequired,
-  ipPublic: PropTypes.string.isRequired,
+  ipPublic: PropTypes.string,
   ipPrivate: PropTypes.string.isRequired
 };
 
