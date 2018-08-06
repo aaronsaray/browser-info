@@ -30,27 +30,33 @@ class App extends React.Component {
   componentDidMount = () => {
     const parser = new UserAgentParser(navigator.userAgent);
 
-    const { name: browser, version: browserDetailed } = parser.browser;
-    const browserImage = ChromeImage;
+    Promise.all([
+      parser.getBrowser(),
+      parser.getOperatingSystem(),
+      parser.getIp()
+    ]).then(([browserResult, operatingSystemResult, ipResult]) => {
+      const { name: browser, version: browserDetailed } = browserResult;
+      const browserImage = ChromeImage;
 
-    const {
-      name: operatingSystem,
-      version: operatingSystemDetailed
-    } = parser.operatingSystem;
-    const operatingSystemImage = AppleImage;
+      const {
+        name: operatingSystem,
+        version: operatingSystemDetailed
+      } = operatingSystemResult;
+      const operatingSystemImage = AppleImage;
 
-    const { public: ipPublic, private: ipPrivate } = parser.ip;
+      const { public: ipPublic, private: ipPrivate } = ipResult;
 
-    this.setState({
-      resultsLoaded: true,
-      browser,
-      browserDetailed,
-      browserImage,
-      operatingSystem,
-      operatingSystemDetailed,
-      operatingSystemImage,
-      ipPublic,
-      ipPrivate
+      this.setState({
+        resultsLoaded: true,
+        browser,
+        browserDetailed,
+        browserImage,
+        operatingSystem,
+        operatingSystemDetailed,
+        operatingSystemImage,
+        ipPublic,
+        ipPrivate
+      });
     });
   };
 
