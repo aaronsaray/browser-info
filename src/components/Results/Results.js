@@ -63,14 +63,14 @@ const Results = props => (
 );
 
 Results.propTypes = {
-  browser: PropTypes.string.isRequired,
-  browserDetailed: PropTypes.string.isRequired,
+  browser: PropTypes.string,
+  browserDetailed: PropTypes.string,
   browserImage: PropTypes.string.isRequired,
-  operatingSystem: PropTypes.string.isRequired,
-  operatingSystemDetailed: PropTypes.string.isRequired,
+  operatingSystem: PropTypes.string,
+  operatingSystemDetailed: PropTypes.string,
   operatingSystemImage: PropTypes.string.isRequired,
   ipPublic: PropTypes.string,
-  ipPrivate: PropTypes.string.isRequired
+  ipPrivate: PropTypes.string
 };
 
 export default Results;
