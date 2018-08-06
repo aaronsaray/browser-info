@@ -42,11 +42,21 @@ class UserAgentParser {
    * Get public and private ip
    */
   getIp() {
-    return new Promise((resolve, reject) => {
-      resolve({
-        public: "x.x.x.x",
-        private: "x.x.x.x"
-      });
+    return new Promise(resolve => {
+      fetch("https://api.ipify.org")
+        .then(resp => resp.text())
+        .then(response => {
+          resolve({
+            public: response,
+            private: "x.x.x.x"
+          });
+        })
+        .catch(() => {
+          resolve({
+            public: "Unable to retrieve",
+            private: "x.x.x.x"
+          });
+        });
     });
   }
 }
