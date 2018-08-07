@@ -28,12 +28,12 @@ class App extends React.Component {
    * Need to parse out the user agent to get the state information
    */
   componentDidMount = () => {
-    const parser = new UserAgentInfoService(navigator.userAgent);
+    const userInfoService = new UserAgentInfoService(navigator.userAgent);
 
     Promise.all([
-      parser.getBrowser(),
-      parser.getOperatingSystem(),
-      parser.getIp()
+      userInfoService.getBrowser(),
+      userInfoService.getOperatingSystem(),
+      userInfoService.getIp()
     ]).then(([browserResult, operatingSystemResult, ipResult]) => {
       const { name: browser, version: browserDetailed } = browserResult;
       const browserImage = ChromeImage;
@@ -46,17 +46,19 @@ class App extends React.Component {
 
       const { public: ipPublic, private: ipPrivate } = ipResult;
 
-      this.setState({
-        resultsLoaded: true,
-        browser,
-        browserDetailed,
-        browserImage,
-        operatingSystem,
-        operatingSystemDetailed,
-        operatingSystemImage,
-        ipPublic,
-        ipPrivate
-      });
+      setTimeout(() => {
+        this.setState({
+          resultsLoaded: true,
+          browser,
+          browserDetailed,
+          browserImage,
+          operatingSystem,
+          operatingSystemDetailed,
+          operatingSystemImage,
+          ipPublic,
+          ipPrivate
+        });
+      }, 1500);
     });
   };
 
