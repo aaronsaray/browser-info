@@ -1,30 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Card, Image, Header } from "semantic-ui-react";
+import { Grid, Header } from "semantic-ui-react";
+import ResultCard from "../ResultCard/ResultCard";
 import IPImage from "../../images/internet.svg";
-
-const ResultCard = (image, header, details, description) => {
-  return (
-    <Card fluid>
-      <Card.Content>
-        <Image src={image} floated="left" />
-        <Card.Header>{header}</Card.Header>
-        <Card.Meta>{details}</Card.Meta>
-        <Card.Description>{description}</Card.Description>
-      </Card.Content>
-    </Card>
-  );
-};
-
-/**
- * If we have no result, we can't detect it, so make the display that.
- */
-const ResultEmptyDecoration = value => {
-  if (!value) {
-    value = "Unable to Detect";
-  }
-  return value;
-};
 
 const Results = props => (
   <React.Fragment>
@@ -34,28 +12,28 @@ const Results = props => (
     <Grid stackable columns={3}>
       <Grid.Row>
         <Grid.Column>
-          {ResultCard(
-            props.browserImage,
-            ResultEmptyDecoration(props.browser),
-            ResultEmptyDecoration(props.browserDetailed),
-            "Your Internet Browser"
-          )}
+          <ResultCard
+            image={props.browserImage}
+            result={props.browser}
+            resultDetailed={props.browserDetailed}
+            description="Your Internet Browser"
+          />
         </Grid.Column>
         <Grid.Column>
-          {ResultCard(
-            props.operatingSystemImage,
-            ResultEmptyDecoration(props.operatingSystem),
-            ResultEmptyDecoration(props.operatingSystemDetailed),
-            "Your Operating System"
-          )}
+          <ResultCard
+            image={props.operatingSystemImage}
+            result={props.operatingSystem}
+            resultDetailed={props.operatingSystemDetailed}
+            description="Your Operating System"
+          />
         </Grid.Column>
         <Grid.Column>
-          {ResultCard(
-            IPImage,
-            ResultEmptyDecoration(props.ipPublic),
-            ResultEmptyDecoration(props.ipPrivate),
-            "Your public IP is bold, the internal is lighter"
-          )}
+          <ResultCard
+            image={IPImage}
+            result={props.ipPublic}
+            resultDetailed={props.ipPrivate}
+            description="Your public IP is bold, the internal is lighter"
+          />
         </Grid.Column>
       </Grid.Row>
     </Grid>
