@@ -9,7 +9,7 @@ import styles from "./App.css";
 import ChromeImage from "../../images/chrome.svg";
 import AppleImage from "../../images/apple.svg";
 
-import UserAgentParser from "../../services/UserAgentParser";
+import UserAgentInfoService from "../../services/UserAgentInfoService";
 
 class App extends React.Component {
   state = {
@@ -28,7 +28,7 @@ class App extends React.Component {
    * Need to parse out the user agent to get the state information
    */
   componentDidMount = () => {
-    const parser = new UserAgentParser(navigator.userAgent);
+    const parser = new UserAgentInfoService(navigator.userAgent);
 
     Promise.all([
       parser.getBrowser(),
