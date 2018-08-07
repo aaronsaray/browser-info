@@ -33,7 +33,12 @@ class App extends React.Component {
     Promise.all([
       userInfoService.getBrowser(),
       userInfoService.getOperatingSystem(),
-      userInfoService.getIp()
+      userInfoService.getIp(),
+      (() => {
+        return new Promise(resolve => {
+          setTimeout(resolve, 1000);
+        });
+      })()
     ]).then(([browserResult, operatingSystemResult, ipResult]) => {
       const { name: browser, version: browserDetailed } = browserResult;
       const browserImage = ChromeImage;
@@ -46,19 +51,17 @@ class App extends React.Component {
 
       const { public: ipPublic, private: ipPrivate } = ipResult;
 
-      setTimeout(() => {
-        this.setState({
-          resultsLoaded: true,
-          browser,
-          browserDetailed,
-          browserImage,
-          operatingSystem,
-          operatingSystemDetailed,
-          operatingSystemImage,
-          ipPublic,
-          ipPrivate
-        });
-      }, 1500);
+      this.setState({
+        resultsLoaded: true,
+        browser,
+        browserDetailed,
+        browserImage,
+        operatingSystem,
+        operatingSystemDetailed,
+        operatingSystemImage,
+        ipPublic,
+        ipPrivate
+      });
     });
   };
 
