@@ -42,26 +42,26 @@ class UserAgentInfoService {
    * Get public and private ip
    */
   getIp() {
-    return new Promise(resolve => {
-      fetch("https://api.ipify.org")
-        .then(resp => resp.text())
-        .then(response => {
-          this.getInternalIp().then(result => {
-            resolve({
-              public: response,
-              private: result
-            });
-          });
-        })
-        .catch(() => {
-          this.getInternalIp().then(result => {
-            resolve({
-              public: null,
-              private: result
-            });
-          });
-        });
-    });
+    return Promise.all([this.getPublicIp(), this.getPrivateIp()]).then(
+      ([publicIp, privateIp]) => {
+        return {
+          public: publicIp,
+          private: privateIp
+        };
+      }
+    );
+  }
+
+  /**
+   * Get the public ip address using ipify
+   */
+  getPublicIp() {
+    return fetch("https://api.ipify.org")
+      .then(resp => resp.text())
+      .catch(() => {
+        // this is OK - sometimes we can't get it - cuz of adblockers
+        return null;
+      });
   }
 
   /**
@@ -69,7 +69,7 @@ class UserAgentInfoService {
    *
    * Modified, crappily, from https://stackoverflow.com/a/48571757
    */
-  getInternalIp() {
+  getPrivateIp() {
     return new Promise(resolve => {
       const peerConnectionClass =
         window.RTCPeerConnection ||

@@ -10,5 +10,4 @@ This is a project to show browser info using React.
 ## Todo
 
 - [ ] Browser/operating system icons should match values
-- [ ] Attempt to get private IP address
 - [ ] Unit tests
