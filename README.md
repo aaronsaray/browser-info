@@ -13,3 +13,4 @@ This is a project to show browser info using React.
 - [ ] Unit tests
 - [ ] Remove delay on loading if it is longer
 - [ ] Add css transition
+- [ ] Favicon
