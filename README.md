@@ -9,8 +9,6 @@ This is a project to show browser info using React.
 
 ## Todo
 
-- [ ] Add css transition
-- [ ] Favicon
 - [ ] Browser/operating system icons should match values
 - [ ] Unit tests
 - [ ] Consider Redux
