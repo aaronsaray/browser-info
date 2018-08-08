@@ -9,7 +9,6 @@ This is a project to show browser info using React.
 
 ## Todo
 
-- [ ] Browser/operating system icons should match values
 - [ ] Unit tests
 - [ ] Consider Redux
 - [ ] Consider Typescript

@@ -1,15 +1,11 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
+import UserAgentInfoService from "../../services/UserAgentInfoService";
 import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
 import Results from "../Results/Results";
 import WorkInProgress from "../WorkInProgress/WorkInProgress";
 import styles from "./App.css";
-
-// consider making these all into a universal import?
-import ChromeImage from "../../images/chrome.svg";
-import AppleImage from "../../images/apple.svg";
-
-import UserAgentInfoService from "../../services/UserAgentInfoService";
+import { deriveBrowserImage, deriveOperatingSystemImage } from "./IconChooser";
 
 class App extends React.Component {
   state = {
@@ -41,13 +37,13 @@ class App extends React.Component {
       })()
     ]).then(([browserResult, operatingSystemResult, ipResult]) => {
       const { name: browser, version: browserDetailed } = browserResult;
-      const browserImage = ChromeImage;
+      const browserImage = deriveBrowserImage(browser);
 
       const {
         name: operatingSystem,
         version: operatingSystemDetailed
       } = operatingSystemResult;
-      const operatingSystemImage = AppleImage;
+      const operatingSystemImage = deriveOperatingSystemImage(operatingSystem);
 
       const { public: ipPublic, private: ipPrivate } = ipResult;
 
