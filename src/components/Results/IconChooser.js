@@ -1,5 +1,5 @@
 /**
- * This is used to determien which icon should be loaded for the app state
+ * This is used to determine which icon should be loaded for the app state
  */
 
 import ChromeImage from "../../images/chrome.svg";
@@ -35,6 +35,7 @@ const deriveBrowserIcon = browser => {
     case "mobilesafari":
     case "safari":
       image = SafariImage;
+      break;
   }
 
   return image;
