@@ -12,11 +12,11 @@ const ResultEmptyDecoration = value => {
   return value;
 };
 
-const ResultCard = ({ image, result, resultDetailed, description }) => {
+const ResultCard = ({ icon, result, resultDetailed, description }) => {
   return (
     <Card fluid>
       <Card.Content>
-        <Image src={image} floated="left" />
+        <Image src={icon} floated="left" />
         <Card.Header>{ResultEmptyDecoration(result)}</Card.Header>
         <Card.Meta>{ResultEmptyDecoration(resultDetailed)}</Card.Meta>
         <Card.Description>{description}</Card.Description>
@@ -26,7 +26,7 @@ const ResultCard = ({ image, result, resultDetailed, description }) => {
 };
 
 ResultCard.propTypes = {
-  image: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
   result: PropTypes.string,
   resultDetailed: PropTypes.string,
   description: PropTypes.string

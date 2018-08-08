@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Grid, Header } from "semantic-ui-react";
 import ResultCard from "../ResultCard/ResultCard";
-import IPImage from "../../images/internet.svg";
+import IPIcon from "../../images/internet.svg";
+import { deriveBrowserIcon, deriveOperatingSystemIcon } from "./IconChooser";
 
 const Results = props => (
   <React.Fragment>
@@ -13,7 +14,7 @@ const Results = props => (
       <Grid.Row>
         <Grid.Column>
           <ResultCard
-            image={props.browserImage}
+            icon={deriveBrowserIcon(props.browser)}
             result={props.browser}
             resultDetailed={props.browserDetailed}
             description="Your Internet Browser"
@@ -21,7 +22,7 @@ const Results = props => (
         </Grid.Column>
         <Grid.Column>
           <ResultCard
-            image={props.operatingSystemImage}
+            icon={deriveOperatingSystemIcon(props.operatingSystem)}
             result={props.operatingSystem}
             resultDetailed={props.operatingSystemDetailed}
             description="Your Operating System"
@@ -29,7 +30,7 @@ const Results = props => (
         </Grid.Column>
         <Grid.Column>
           <ResultCard
-            image={IPImage}
+            icon={IPIcon}
             result={props.ipPublic}
             resultDetailed={props.ipPrivate}
             description="Your public IP is bold, the internal is lighter"
@@ -43,10 +44,8 @@ const Results = props => (
 Results.propTypes = {
   browser: PropTypes.string,
   browserDetailed: PropTypes.string,
-  browserImage: PropTypes.string.isRequired,
   operatingSystem: PropTypes.string,
   operatingSystemDetailed: PropTypes.string,
-  operatingSystemImage: PropTypes.string.isRequired,
   ipPublic: PropTypes.string,
   ipPrivate: PropTypes.string
 };

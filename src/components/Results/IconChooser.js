@@ -11,7 +11,7 @@ import AndroidImage from "../../images/android.svg";
 import WindowsImage from "../../images/windows.svg";
 import DefaultImage from "../../images/internet.svg";
 
-const deriveBrowserImage = browser => {
+const deriveBrowserIcon = browser => {
   let image = DefaultImage;
   const browserComparison = browser
     .toLowerCase()
@@ -40,7 +40,7 @@ const deriveBrowserImage = browser => {
   return image;
 };
 
-const deriveOperatingSystemImage = operatingSystem => {
+const deriveOperatingSystemIcon = operatingSystem => {
   let image = DefaultImage;
   const osComparison = operatingSystem
     .toLowerCase()
@@ -66,4 +66,4 @@ const deriveOperatingSystemImage = operatingSystem => {
   return image;
 };
 
-export { deriveBrowserImage, deriveOperatingSystemImage };
+export { deriveBrowserIcon, deriveOperatingSystemIcon };

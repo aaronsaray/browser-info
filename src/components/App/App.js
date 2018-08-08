@@ -5,17 +5,14 @@ import LoadingIndicator from "../LoadingIndicator/LoadingIndicator";
 import Results from "../Results/Results";
 import WorkInProgress from "../WorkInProgress/WorkInProgress";
 import styles from "./App.css";
-import { deriveBrowserImage, deriveOperatingSystemImage } from "./IconChooser";
 
 class App extends React.Component {
   state = {
     resultsLoaded: false,
     browser: null,
     browserDetailed: null,
-    browserImage: null,
     operatingSystem: null,
     operatingSystemDetailed: null,
-    operatingSystemImage: null,
     ipPublic: null,
     ipPrivate: null
   };
@@ -37,13 +34,11 @@ class App extends React.Component {
       })()
     ]).then(([browserResult, operatingSystemResult, ipResult]) => {
       const { name: browser, version: browserDetailed } = browserResult;
-      const browserImage = deriveBrowserImage(browser);
 
       const {
         name: operatingSystem,
         version: operatingSystemDetailed
       } = operatingSystemResult;
-      const operatingSystemImage = deriveOperatingSystemImage(operatingSystem);
 
       const { public: ipPublic, private: ipPrivate } = ipResult;
 
@@ -51,10 +46,8 @@ class App extends React.Component {
         resultsLoaded: true,
         browser,
         browserDetailed,
-        browserImage,
         operatingSystem,
         operatingSystemDetailed,
-        operatingSystemImage,
         ipPublic,
         ipPrivate
       });
@@ -68,10 +61,8 @@ class App extends React.Component {
           <Results
             browser={this.state.browser}
             browserDetailed={this.state.browserDetailed}
-            browserImage={this.state.browserImage}
             operatingSystem={this.state.operatingSystem}
             operatingSystemDetailed={this.state.operatingSystemDetailed}
-            operatingSystemImage={this.state.operatingSystemImage}
             ipPublic={this.state.ipPublic}
             ipPrivate={this.state.ipPrivate}
           />
