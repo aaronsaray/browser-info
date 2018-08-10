@@ -9,6 +9,7 @@ This is a project to show browser info using React.
 
 ## Todo
 
+- [ ] Chrome Mobile Troubleshooting / Testing
 - [ ] Unit tests
 - [ ] Consider Redux
 - [ ] Consider Typescript
