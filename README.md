@@ -9,6 +9,7 @@ This is a project to show browser info using React.
 
 ## Todo
 
+- [ ] Investigate into making child result cards that contain their logic for switch statement
 - [ ] Chrome Mobile Troubleshooting / Testing
 - [ ] Unit tests
 - [ ] Consider Redux
