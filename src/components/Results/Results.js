@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { Grid, Header } from "semantic-ui-react";
 import ResultCard from "../ResultCard/ResultCard";
 import IPIcon from "../../images/internet.svg";
-import { deriveBrowserIcon, deriveOperatingSystemIcon } from "./IconChooser";
+import BrowserResultCard from "../ResultCard/BrowserResultCard";
+import OperatingSystemResultCard from "../ResultCard/OperatingSystemResultCard";
 
 const Results = props => (
   <React.Fragment>
@@ -13,16 +14,14 @@ const Results = props => (
     <Grid stackable columns={3}>
       <Grid.Row>
         <Grid.Column>
-          <ResultCard
-            icon={deriveBrowserIcon(props.browser)}
+          <BrowserResultCard
             result={props.browser}
             resultDetailed={props.browserDetailed}
             description="Your Internet Browser"
           />
         </Grid.Column>
         <Grid.Column>
-          <ResultCard
-            icon={deriveOperatingSystemIcon(props.operatingSystem)}
+          <OperatingSystemResultCard
             result={props.operatingSystem}
             resultDetailed={props.operatingSystemDetailed}
             description="Your Operating System"

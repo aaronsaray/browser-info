@@ -1,22 +1,20 @@
-/**
- * This is used to determine which icon should be loaded for the app state
- */
-
-import ChromeImage from "../../images/chrome.svg";
+import React from "react";
+import PropTypes from "prop-types";
+import ResultCard from "./ResultCard";
 import FirefoxImage from "../../images/firefox.svg";
 import InternetExplorerImage from "../../images/internetexplorer.svg";
 import SafariImage from "../../images/safari.svg";
-import AppleImage from "../../images/apple.svg";
 import AndroidImage from "../../images/android.svg";
-import WindowsImage from "../../images/windows.svg";
 import DefaultImage from "../../images/internet.svg";
+import ChromeImage from "../../images/chrome.svg";
 
 const deriveBrowserIcon = browser => {
-  let image = DefaultImage;
   const browserComparison = browser
     .toLowerCase()
     .split(" ")
     .join("");
+
+  let image;
 
   switch (browserComparison) {
     case "firefox":
@@ -36,35 +34,28 @@ const deriveBrowserIcon = browser => {
     case "safari":
       image = SafariImage;
       break;
+    default:
+      image = DefaultImage;
   }
 
   return image;
 };
 
-const deriveOperatingSystemIcon = operatingSystem => {
-  let image = DefaultImage;
-  const osComparison = operatingSystem
-    .toLowerCase()
-    .split(" ")
-    .join("");
-
-  switch (osComparison) {
-    case "macos":
-    case "ios":
-      image = AppleImage;
-      break;
-    case "android":
-      image = AndroidImage;
-      break;
-    case "windows":
-      image = WindowsImage;
-      break;
-    case "chromiumos":
-      image = ChromeImage;
-      break;
-  }
-
-  return image;
+const BrowserResultCard = ({ result, resultDetailed, description }) => {
+  return (
+    <ResultCard
+      icon={deriveBrowserIcon(result)}
+      result={result}
+      resultDetailed={resultDetailed}
+      description={description}
+    />
+  );
 };
 
-export { deriveBrowserIcon, deriveOperatingSystemIcon };
+BrowserResultCard.propTypes = {
+  result: PropTypes.string,
+  resultDetailed: PropTypes.string,
+  description: PropTypes.string
+};
+
+export default BrowserResultCard;
