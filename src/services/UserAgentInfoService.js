@@ -93,9 +93,15 @@ class UserAgentInfoService {
       peerConnection.onicecandidate = event => {
         if (event && event.candidate && event.candidate.candidate) {
           let s = event.candidate.candidate.split(" ");
+          peerConnection.onicecandidate = () => {};
           resolve(s[4]);
         }
       };
+
+      // in cases where onicecandidate doesn't resolve at all or fast enough...
+      setTimeout(() => {
+        resolve();
+      }, 1000);
     });
   }
 }

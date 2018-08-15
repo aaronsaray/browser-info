@@ -10,6 +10,5 @@ This is a project to show browser info using React.
 ## Todo
 
 - [ ] Unit tests
-- [ ] Figure out why webrtc is failing on mobile/not resolving
 - [ ] Consider Redux
 - [ ] Consider Typescript
