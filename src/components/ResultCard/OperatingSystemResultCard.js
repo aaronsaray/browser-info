@@ -8,10 +8,12 @@ import AppleImage from "../../images/apple.svg";
 import WindowsImage from "../../images/windows.svg";
 
 const deriveOperatingSystemIcon = operatingSystem => {
-  const osComparison = operatingSystem
-    .toLowerCase()
-    .split(" ")
-    .join("");
+  const osComparison =
+    operatingSystem &&
+    operatingSystem
+      .toLowerCase()
+      .split(" ")
+      .join("");
 
   let image;
 

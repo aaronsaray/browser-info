@@ -9,10 +9,12 @@ import DefaultImage from "../../images/internet.svg";
 import ChromeImage from "../../images/chrome.svg";
 
 const deriveBrowserIcon = browser => {
-  const browserComparison = browser
-    .toLowerCase()
-    .split(" ")
-    .join("");
+  const browserComparison =
+    browser &&
+    browser
+      .toLowerCase()
+      .split(" ")
+      .join("");
 
   let image;
 
