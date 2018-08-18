@@ -1,4 +1,4 @@
-# Browser Info · [![Build Status](https://travis-ci.org/aaronsaray/browser-info.svg?branch=master)](https://travis-ci.org/aaronsaray/browser-info)
+# Browser Info · [![Build Status](https://travis-ci.org/aaronsaray/browser-info.svg?branch=master)](https://travis-ci.org/aaronsaray/browser-info) · [![Coverage Status](https://coveralls.io/repos/github/aaronsaray/browser-info/badge.svg?branch=master)](https://coveralls.io/github/aaronsaray/browser-info?branch=master)
 
 This is a project to show browser info using React.
 
