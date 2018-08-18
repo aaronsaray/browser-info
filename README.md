@@ -1,4 +1,4 @@
-# Browser Info
+# Browser Info · [![Build Status](https://travis-ci.org/aaronsaray/browser-info.svg?branch=master)](https://travis-ci.org/aaronsaray/browser-info)
 
 This is a project to show browser info using React.
 
@@ -9,6 +9,6 @@ This is a project to show browser info using React.
 
 ## Todo
 
-- [ ] Unit tests
+- [ ] Unit tests that are more than just mounting, check connection to network
 - [ ] Consider Redux
 - [ ] Consider Typescript
