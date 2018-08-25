@@ -9,6 +9,6 @@ This is a project to show browser info using React.
 
 ## Todo
 
-- [ ] Unit tests that are more than just mounting, check connection to network
+- [ ] Unit test the service
 - [ ] Consider Redux
 - [ ] Consider Typescript
