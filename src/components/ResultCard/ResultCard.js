@@ -29,7 +29,7 @@ ResultCard.propTypes = {
   icon: PropTypes.string.isRequired,
   result: PropTypes.string,
   resultDetailed: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string.isRequired
 };
 
 export default ResultCard;
