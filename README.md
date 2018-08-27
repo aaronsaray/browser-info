@@ -10,5 +10,6 @@ This is a project to show browser info using React.
 ## Todo
 
 - [ ] Unit test the service
+- [ ] Storybook for some elements?
 - [ ] Consider Redux
 - [ ] Consider Typescript
